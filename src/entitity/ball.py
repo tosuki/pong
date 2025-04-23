@@ -3,8 +3,8 @@ from src.entitity.entity import Entity
 class Ball(Entity):
     def __init__(self, x, y):
         super().__init__("ball", 20, 20, x, y)
-        self._speed = 10
-        self._diagonal_factor = self._speed - 5
+        self._speed = 5
+        self._diagonal_factor = self._speed - self._speed/2
         self._is_north = True
         self._is_east = True
 

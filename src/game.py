@@ -25,7 +25,7 @@ class Game:
         for event in pygame.event.get():
             if event.type == QUIT:
                 self._close()          
-            self.platform.handle_key_press(self)
+        self.platform.handle_key_press(self)
 
     def _loop(self):
         self._handle_events()
