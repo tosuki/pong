@@ -2,7 +2,9 @@ import pygame
 from pygame.locals import *
 
 from src.draw import Draw
+
 from src.entitity.platform import Platform, BotPlatform
+from src.entitity.ball import Ball
 
 class Game:
     def __init__(self):
@@ -16,6 +18,7 @@ class Game:
         self._draw = Draw(self)
 
         self.platform = Platform(20, 20, None)
+        self.ball = Ball(self.width / 2, self.height / 2)
         self.auto_platform = BotPlatform(self.width - 20, 20)
 
     def _handle_events(self):
@@ -27,6 +30,7 @@ class Game:
     def _loop(self):
         self._handle_events()
         self.auto_platform.on_update(self)
+        self.ball.on_update(self)
         self._draw.draw_game()
 
 

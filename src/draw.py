@@ -27,3 +27,4 @@ class Draw:
         self._draw_background()
         self._draw_rectangle_entity(self.game.platform)
         self._draw_rectangle_entity(self.game.auto_platform)
+        self._draw_rectangle_entity(self.game.ball)
