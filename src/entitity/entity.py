@@ -1,8 +1,9 @@
 class Entity:
-    def __init__(self, name, width, height, x, y):
+    def __init__(self, name, width, height, x, y, color = (255, 255, 255)):
         self.name = name
         self.width = width
         self.height = height
+        self.color = color
 
         self.position = [x, y]
 

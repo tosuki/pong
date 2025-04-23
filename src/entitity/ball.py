@@ -2,7 +2,7 @@ from src.entitity.entity import Entity
 
 class Ball(Entity):
     def __init__(self, x, y):
-        super().__init__("ball", 20, 20, x, y)
+        super().__init__("ball", 20, 20, x, y, (66, 135, 245))
         self._speed = 5
         self._diagonal_factor = self._speed - self._speed/2
         self._is_north = True
@@ -29,8 +29,13 @@ class Ball(Entity):
         if self.position[1] >= game.height or self.position[1] <= 0:
             self._is_north = not self._is_north
 
+    def _check_collision(self, game):
+        if game.check_collision(self, game.platform):
+            self._is_east = not self._is_east
+
     def on_update(self, game):
         self._check_boundaries(game)
+        self._check_collision(game)
         if self._is_east:
             self.move_left()
         else:

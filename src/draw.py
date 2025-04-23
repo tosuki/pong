@@ -7,7 +7,7 @@ class Draw:
     def _draw_rectangle_entity(self, entity):
         pygame.draw.rect(
             self.game.surface,
-            pygame.Color(255, 255, 255),
+            entity.color,
             pygame.Rect(
                 entity.position[0],
                 entity.position[1],

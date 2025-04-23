@@ -3,7 +3,7 @@ from src.entitity.entity import Entity
 
 class Platform(Entity):
     def __init__(self, x, y, speed):
-        super().__init__("Plataforma pica", 10, 40, x, y)
+        super().__init__("Plataforma pica", 10, 40, x, y, (255, 255, 255))
         self.speed = speed or 10
 
     def _check_boundaries_collision(self, game, next_position):
@@ -27,10 +27,8 @@ class Platform(Entity):
 
         if keys_pressed[pygame.K_w]:
             self._move_up(game)
-            print(self.position)
         if keys_pressed[pygame.K_s]:
             self._move_down(game)
-            print(self.position)
 
 class BotPlatform (Platform):
     def __init__(self, x, y):

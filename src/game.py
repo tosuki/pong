@@ -27,6 +27,18 @@ class Game:
                 self._close()          
         self.platform.handle_key_press(self)
 
+    def check_collision(self, entity_a, entity_b):
+        ax, ay = entity_a.position
+        bx, by = entity_b.position
+
+        if (ax < bx + entity_b.width and
+            ax + entity_a.width > bx and
+            ay < by + entity_b.height and
+            ay + entity_a.height > by):
+            return True
+        return False
+
+
     def _loop(self):
         self._handle_events()
         self.auto_platform.on_update(self)
