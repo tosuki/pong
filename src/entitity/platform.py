@@ -3,7 +3,7 @@ from src.entitity.entity import Entity
 
 class Platform(Entity):
     def __init__(self, x, y, speed):
-        super().__init__("Plataforma pica", 10, 40, x, y, (255, 255, 255))
+        super().__init__("Plataforma pica", 10, 50, x, y, (255, 255, 255))
         self.speed = speed or 10
 
     def _check_boundaries_collision(self, game, next_position):
@@ -15,6 +15,9 @@ class Platform(Entity):
         if self._check_boundaries_collision(game, y):
             return
         self.set_position(None, y)
+
+    def increase_speed(self, speed):
+        self.speed += speed
 
     def _move_up(self, game):
         self._move(game, self.position[1] - self.speed)
