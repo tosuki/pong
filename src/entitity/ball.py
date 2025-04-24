@@ -1,12 +1,17 @@
+from random import random
 from src.entitity.entity import Entity
 
 class Ball(Entity):
     def __init__(self, x, y):
-        super().__init__("ball", 20, 20, x, y, (66, 135, 245))
+        self.colors = ((255, 255, 255), (50, 168, 82), (0, 0, 0))
+        super().__init__("ball", 20, 20, x, y, (255, 255, 255))
         self._speed = 3
         self._diagonal_factor = self._speed - self._speed/2
         self._is_north = True
         self._is_east = True
+
+    def _change_color_by_speed(self):
+        self.color = self.colors[round(random()*(len(self.colors) - 1))]
 
     def _get_diagonal_y(self):
         return self.position[1]+self._diagonal_factor if self._is_north else self.position[1]-self._diagonal_factor
@@ -33,6 +38,7 @@ class Ball(Entity):
         if self._speed > 20:
             return
         self._speed += 2
+        self._change_color_by_speed()
 
     def _check_collision(self, game):
         if game.check_collision(self, game.platform):

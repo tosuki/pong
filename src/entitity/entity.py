@@ -7,6 +7,9 @@ class Entity:
 
         self.position = [x, y]
 
+    def get_color(self):
+        return self.color
+
     def set_position(self, x, y):
         if x != None:
             self.position[0] = x

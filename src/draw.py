@@ -7,7 +7,7 @@ class Draw:
     def _draw_rectangle_entity(self, entity):
         pygame.draw.rect(
             self.game.surface,
-            entity.color,
+            entity.get_color(),
             pygame.Rect(
                 entity.position[0],
                 entity.position[1],
@@ -22,6 +22,9 @@ class Draw:
             pygame.Color(155, 155, 155),
             pygame.Rect(0, 0, self.game.width, self.game.height)
         )
+
+    def _draw_score(self):
+        pass
 
     def draw_game(self):
         self._draw_background()

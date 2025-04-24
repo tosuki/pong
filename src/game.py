@@ -4,6 +4,7 @@ from pygame.locals import *
 from src.draw import Draw
 
 from src.entitity.platform import Platform, BotPlatform
+from src.entitity.score import Score
 from src.entitity.ball import Ball
 
 class Game:
@@ -17,9 +18,10 @@ class Game:
         self._clock = pygame.time.Clock()
         self._draw = Draw(self)
 
-        self.platform = Platform(20, 20, None)
+        self.platform = Platform(0, self.height/2, None)
         self.ball = Ball(self.width / 2, self.height / 2)
-        self.auto_platform = BotPlatform(self.width - 20, 20)
+        self.score = Score()
+        self.auto_platform = BotPlatform(self.width-10, 20)
 
     def _handle_events(self):
         for event in pygame.event.get():
